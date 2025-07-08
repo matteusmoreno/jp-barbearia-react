@@ -1,0 +1,38 @@
+/* src/components/Footer/Footer.module.css (ATUALIZADO) */
+
+.footer {
+    padding: 2rem;
+    text-align: center;
+    background-color: #000;
+    margin-top: 2rem;
+}
+
+.footer p {
+    font-size: 0.9rem;
+    color: #aaa;
+    margin: 0;
+}
+
+/* --- ESTILOS NOVOS PARA AS REDES SOCIAIS --- */
+.socialLinks {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    /* Espaçamento entre os ícones */
+    margin-bottom: 1rem;
+    /* Espaço acima do texto de copyright */
+}
+
+.socialLinks a {
+    color: var(--primary-text);
+    font-size: 1.8rem;
+    /* Tamanho dos ícones */
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.socialLinks a:hover {
+    color: var(--accent-color);
+    transform: scale(1.1);
+    /* Efeito de zoom ao passar o mouse */
+}

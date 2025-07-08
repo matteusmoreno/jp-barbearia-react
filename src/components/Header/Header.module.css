@@ -1,0 +1,116 @@
+/* src/components/Header/Header.module.css (ATUALIZADO) */
+
+.navbar {
+    display: flex;
+    /* justify-content: space-between;  <-- ESTA LINHA FOI REMOVIDA */
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: rgba(17, 17, 17, 0.85);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #2a2a2a;
+}
+
+/* REGRA ADICIONADA: para fazer a área de navegação crescer */
+.navbar>nav {
+    flex-grow: 1;
+}
+
+.logo img {
+    height: 50px;
+}
+
+.navLinks {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    /* LINHA ADICIONADA: para centralizar os links */
+}
+
+.navLinks a {
+    color: var(--primary-text);
+    text-decoration: none;
+    font-family: var(--font-headings);
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.navLinks a:hover {
+    color: var(--accent-color);
+}
+
+.mobileNavToggle {
+    display: none;
+}
+
+/* O restante do código de responsividade permanece o mesmo */
+@media (max-width: 768px) {
+
+    /* ADICIONADO: Garante que a centralização não afete o menu mobile */
+    .navbar>nav {
+        flex-grow: 0;
+    }
+
+    .navLinks {
+        position: fixed;
+        inset: 0 0 0 30%;
+        flex-direction: column;
+        justify-content: center;
+        /* A centralização aqui fica boa no mobile também */
+        align-items: center;
+        padding: 2rem;
+        gap: 2rem;
+        background: var(--dark-secondary);
+        transform: translateX(100%);
+        transition: transform 350ms ease-out;
+    }
+
+    .navLinks.active {
+        transform: translateX(0%);
+    }
+
+    .mobileNavToggle {
+        display: block;
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        z-index: 9999;
+        background: transparent;
+        border: 0;
+        width: 2rem;
+        height: 2rem;
+        cursor: pointer;
+    }
+
+    .mobileNavToggle::before,
+    .mobileNavToggle::after {
+        content: '';
+        position: absolute;
+        width: 2rem;
+        height: 3px;
+        background: var(--primary-text);
+        border-radius: 2px;
+        transition: transform 350ms ease;
+    }
+
+    .mobileNavToggle::before {
+        transform: translateY(-7px);
+    }
+
+    .mobileNavToggle::after {
+        transform: translateY(7px);
+    }
+
+    .mobileNavToggle.open::before {
+        transform: rotate(45deg);
+    }
+
+    .mobileNavToggle.open::after {
+        transform: rotate(-45deg);
+    }
+}
