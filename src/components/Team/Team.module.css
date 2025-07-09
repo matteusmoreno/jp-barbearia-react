@@ -1,0 +1,133 @@
+/* src/components/Team/Team.module.css (ATUALIZADO para Swiper) */
+.teamSection {
+    padding: 8rem 2rem;
+    background-color: var(--dark-bg);
+    text-align: center;
+    overflow: hidden;
+    /* Evita que as setas saiam da tela em resoluções intermediárias */
+}
+
+.sectionTitle {
+    font-family: var(--font-headings);
+    font-size: 3rem;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+}
+
+.sectionTitle::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 4px;
+    background-color: var(--accent-color);
+    margin: 1rem auto 2.5rem;
+}
+
+/* Container principal do Swiper */
+.mySwiper {
+    max-width: 1200px;
+    padding: 1rem 0 4rem 0 !important;
+}
+
+/* Card da Equipe */
+.teamCard {
+    background-color: var(--dark-secondary);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    text-align: center;
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.teamCard:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(212, 175, 55, 0.15);
+}
+
+.teamImage {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    object-position: center 20%;
+}
+
+.teamInfo {
+    padding: 1.5rem;
+    flex-grow: 1;
+}
+
+.teamName {
+    font-family: var(--font-headings);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.teamRole {
+    color: var(--accent-color);
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* --- ESTILOS PERSONALIZADOS PARA O SWIPER --- */
+
+/* Usamos :global() para alcançar as classes da biblioteca externa */
+:global(.swiper-button-next),
+:global(.swiper-button-prev) {
+    color: var(--accent-color) !important;
+    transition: transform 0.2s ease;
+}
+
+:global(.swiper-button-next:hover),
+:global(.swiper-button-prev:hover) {
+    transform: scale(1.2);
+}
+
+:global(.swiper-pagination-bullet) {
+    background: var(--primary-text) !important;
+    opacity: 0.7 !important;
+}
+
+:global(.swiper-pagination-bullet-active) {
+    background: var(--accent-color) !important;
+    opacity: 1 !important;
+}
+
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 768px) {
+    .teamSection {
+        padding: 5rem 1.5rem;
+    }
+
+    .sectionTitle {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .teamSection {
+        padding: 4rem 1rem;
+    }
+
+    .sectionTitle {
+        font-size: 1.8rem;
+    }
+
+    .teamImage {
+        height: 300px;
+    }
+
+    .teamName {
+        font-size: 1.3rem;
+    }
+
+    /* Esconde as setas em telas muito pequenas */
+    :global(.swiper-button-next),
+    :global(.swiper-button-prev) {
+        display: none !important;
+    }
+}

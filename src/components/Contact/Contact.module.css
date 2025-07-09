@@ -1,4 +1,4 @@
-/* src/components/Contact/Contact.module.css */
+/* src/components/Contact/Contact.module.css (CORRIGIDO) */
 .contactSection {
     background-color: var(--dark-bg);
     padding: 8rem 2rem;
@@ -41,7 +41,6 @@
     color: var(--accent-color);
     font-size: 1.8rem;
     margin-bottom: 1rem;
-    /* Linhas removidas */
 }
 
 .contactInfo p {
@@ -57,7 +56,16 @@
     filter: invert(100%) hue-rotate(180deg) contrast(0.9);
 }
 
+/* --- ADICIONADO PARA CORRIGIR RESPONSIVIDADE DO TÍTULO --- */
 @media (max-width: 768px) {
+    .contactSection {
+        padding: 5rem 1.5rem;
+    }
+
+    .sectionTitle {
+        font-size: 2.2rem;
+    }
+
     .contactInfo h3 {
         font-size: 1.5rem;
     }
@@ -68,6 +76,14 @@
 }
 
 @media (max-width: 480px) {
+    .contactSection {
+        padding: 4rem 1rem;
+    }
+
+    .sectionTitle {
+        font-size: 1.8rem;
+    }
+
     .contactInfo h3 {
         font-size: 1.4rem;
     }

@@ -8,7 +8,7 @@ const Contact = () => {
             <h2 className={styles.sectionTitle}>Contato</h2>
             <div className={styles.contactContainer}>
                 <div className={styles.contactInfo}>
-                    <h3>Nosso Endereço</h3>
+                    <h3>Endereço</h3>
                     <p>
                         Rua Alfredo Menezes, 198 - Loja 1<br />
                         Bacaxá, Saquarema - RJ<br />
@@ -26,6 +26,7 @@ const Contact = () => {
                 </div>
                 <div className={styles.contactMap}>
                     <iframe
+                        title="Localização da JP Barbearia no Google Maps" // ADICIONADO PARA CORRIGIR O WARNING
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3675.5154271660867!2d-42.46587340000001!3d-22.8943522!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x975d0ac3f82255%3A0x729c9f7ee88aeb9c!2sJP%20Barbearia!5e0!3m2!1spt-BR!2sbr!4v1752001577441!5m2!1spt-BR!2sbr"
                         width="600"
                         height="450"

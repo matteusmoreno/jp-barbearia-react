@@ -44,23 +44,10 @@
     padding-bottom: 0.5rem;
 }
 
-.navLinks a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: var(--accent-color);
-    transition: width var(--transition-speed) ease;
-}
+/* ::after foi removido para tirar o sublinhado */
 
 .navLinks a:hover {
     color: var(--accent-color);
-}
-
-.navLinks a:hover::after {
-    width: 100%;
 }
 
 .mobileNavToggle {
@@ -112,10 +99,6 @@
     .navLinks a {
         font-size: 0.9rem;
         padding-bottom: 0.3rem;
-    }
-
-    .navLinks a::after {
-        display: none;
     }
 
     .mobileNavToggle {

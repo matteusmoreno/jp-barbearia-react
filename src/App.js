@@ -7,6 +7,7 @@ import Hero from './components/Hero/Hero';
 import About from './components/About/About';
 import Services from './components/Services/Services';
 import Gallery from './components/Gallery/Gallery';
+import Team from './components/Team/Team'; // 1. IMPORTAR O NOVO COMPONENTE
 import Contact from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
 
@@ -19,6 +20,7 @@ function App() {
                 <About />
                 <Services />
                 <Gallery />
+                <Team /> {/* 2. ADICIONAR A NOVA SEÇÃO AQUI */}
                 <Contact />
             </main>
             <Footer />

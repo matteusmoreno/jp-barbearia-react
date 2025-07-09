@@ -25,11 +25,11 @@ const Header = () => {
                     <span className="sr-only">Menu</span>
                 </button>
                 <ul id="primary-navigation" className={`${styles.navLinks} ${menuOpen ? styles.active : ''}`}>
-                    {/* CORREÇÃO: Adicionada classe CSS para controlar a visibilidade */}
                     <li className={styles.hideOnMobile}><a href="#inicio" onClick={handleLinkClick}>Início</a></li>
                     <li><a href="#sobre" onClick={handleLinkClick}>Sobre</a></li>
                     <li><a href="#servicos" onClick={handleLinkClick}>Serviços</a></li>
                     <li><a href="#galeria" onClick={handleLinkClick}>Galeria</a></li>
+                    <li><a href="#equipe" onClick={handleLinkClick}>Equipe</a></li> {/* ADICIONADO AQUI */}
                     <li><a href="#contato" onClick={handleLinkClick}>Contato</a></li>
                 </ul>
             </nav>
