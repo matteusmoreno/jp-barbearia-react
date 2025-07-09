@@ -1,38 +1,32 @@
-/* src/components/Footer/Footer.module.css (ATUALIZADO) */
-
+/* src/components/Footer/Footer.module.css */
 .footer {
-    padding: 2rem;
+    padding: 3rem 2rem;
     text-align: center;
     background-color: #000;
-    margin-top: 2rem;
+    border-top: 1px solid #2a2a2a;
 }
 
-.footer p {
-    font-size: 0.9rem;
-    color: #aaa;
-    margin: 0;
-}
-
-/* --- ESTILOS NOVOS PARA AS REDES SOCIAIS --- */
 .socialLinks {
     display: flex;
     justify-content: center;
-    gap: 1.5rem;
-    /* Espaçamento entre os ícones */
-    margin-bottom: 1rem;
-    /* Espaço acima do texto de copyright */
+    gap: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 .socialLinks a {
     color: var(--primary-text);
-    font-size: 1.8rem;
-    /* Tamanho dos ícones */
+    font-size: 2rem;
     text-decoration: none;
-    transition: color 0.3s ease, transform 0.3s ease;
+    transition: color var(--transition-speed) ease, transform var(--transition-speed) ease;
 }
 
 .socialLinks a:hover {
     color: var(--accent-color);
-    transform: scale(1.1);
-    /* Efeito de zoom ao passar o mouse */
+    transform: translateY(-5px);
+}
+
+.footer p {
+    font-size: 1rem;
+    color: #aaa;
+    margin: 0;
 }

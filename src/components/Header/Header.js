@@ -1,3 +1,4 @@
+// src/components/Header/Header.js (CORRIGIDO)
 import React, { useState } from 'react';
 import styles from './Header.module.css';
 import logo from '../../assets/jp-barbearia-logo-transparente.png';
@@ -24,7 +25,8 @@ const Header = () => {
                     <span className="sr-only">Menu</span>
                 </button>
                 <ul id="primary-navigation" className={`${styles.navLinks} ${menuOpen ? styles.active : ''}`}>
-                    <li><a href="#inicio" onClick={handleLinkClick}>Início</a></li>
+                    {/* CORREÇÃO: Adicionada classe CSS para controlar a visibilidade */}
+                    <li className={styles.hideOnMobile}><a href="#inicio" onClick={handleLinkClick}>Início</a></li>
                     <li><a href="#sobre" onClick={handleLinkClick}>Sobre</a></li>
                     <li><a href="#servicos" onClick={handleLinkClick}>Serviços</a></li>
                     <li><a href="#galeria" onClick={handleLinkClick}>Galeria</a></li>

@@ -1,3 +1,4 @@
+// src/components/Gallery/Gallery.js
 import React, { useState } from 'react';
 import styles from './Gallery.module.css';
 import Modal from '../Modal/Modal';
@@ -11,16 +12,15 @@ import barbearia6 from '../../assets/barbearia6.jpg';
 import barbearia7 from '../../assets/barbearia7.jpg';
 import barbearia8 from '../../assets/barbearia8.jpg';
 
-// Array com 8 imagens de cortes de cabelo (URLs funcionais)
 const images = [
-  barbearia1,
-  barbearia2,
-  barbearia3,
-  barbearia4,
-  barbearia5,
-  barbearia6,
-  barbearia7,
-  barbearia8
+    barbearia1,
+    barbearia2,
+    barbearia3,
+    barbearia4,
+    barbearia5,
+    barbearia6,
+    barbearia7,
+    barbearia8
 ];
 
 const Gallery = () => {
@@ -31,12 +31,18 @@ const Gallery = () => {
             <h2 className={styles.sectionTitle}>Nossos Trabalhos</h2>
             <div className={styles.galleryGrid}>
                 {images.map((img, index) => (
-                    <img
+                    <div
                         key={index}
-                        src={img}
-                        alt={`Corte de cabelo profissional ${index + 1}`}
+                        className={styles.imageWrapper}
                         onClick={() => setSelectedImg(img)}
-                    />
+                    >
+                        <img
+                            className={styles.galleryImage}
+                            src={img}
+                            alt={`Corte de cabelo profissional ${index + 1}`}
+                        />
+                        <div className={styles.imageOverlay}></div>
+                    </div>
                 ))}
             </div>
             {selectedImg && <Modal selectedImg={selectedImg} setSelectedImg={setSelectedImg} />}

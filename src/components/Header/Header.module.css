@@ -1,34 +1,36 @@
-/* src/components/Header/Header.module.css (ATUALIZADO) */
-
+/* src/components/Header/Header.module.css (CORRIGIDO) */
 .navbar {
     display: flex;
-    /* justify-content: space-between;  <-- ESTA LINHA FOI REMOVIDA */
     align-items: center;
     padding: 1rem 2rem;
-    background-color: rgba(17, 17, 17, 0.85);
+    background-color: rgba(18, 18, 18, 0.85);
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
     backdrop-filter: blur(10px);
     border-bottom: 1px solid #2a2a2a;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* REGRA ADICIONADA: para fazer a área de navegação crescer */
 .navbar>nav {
     flex-grow: 1;
 }
 
 .logo img {
-    height: 50px;
+    height: 55px;
+    transition: transform var(--transition-speed) ease;
+}
+
+.logo:hover img {
+    transform: scale(1.05);
 }
 
 .navLinks {
     list-style: none;
     display: flex;
-    gap: 1.5rem;
+    gap: 2rem;
     justify-content: center;
-    /* LINHA ADICIONADA: para centralizar os links */
 }
 
 .navLinks a {
@@ -37,53 +39,95 @@
     font-family: var(--font-headings);
     font-size: 1.1rem;
     text-transform: uppercase;
-    transition: color 0.3s ease;
+    transition: color var(--transition-speed) ease, transform var(--transition-speed) ease;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.navLinks a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--accent-color);
+    transition: width var(--transition-speed) ease;
 }
 
 .navLinks a:hover {
     color: var(--accent-color);
 }
 
+.navLinks a:hover::after {
+    width: 100%;
+}
+
 .mobileNavToggle {
     display: none;
 }
 
-/* O restante do código de responsividade permanece o mesmo */
-@media (max-width: 768px) {
+/* Esconde por padrão, pois a classe só terá efeito no mobile */
+.hideOnMobile {
+    display: list-item;
+}
 
-    /* ADICIONADO: Garante que a centralização não afete o menu mobile */
+/* ------------------- RESPONSIVIDADE ------------------- */
+@media (max-width: 768px) {
     .navbar>nav {
         flex-grow: 0;
     }
 
+    /* CORREÇÃO: Esconde o link "Início" no modo mobile */
+    .hideOnMobile {
+        display: none;
+    }
+
     .navLinks {
         position: fixed;
-        inset: 0 0 0 30%;
-        flex-direction: column;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: auto;
+
+        flex-direction: row;
+        flex-wrap: wrap;
         justify-content: center;
-        /* A centralização aqui fica boa no mobile também */
         align-items: center;
-        padding: 2rem;
-        gap: 2rem;
-        background: var(--dark-secondary);
-        transform: translateX(100%);
+
+        padding: 6rem 1rem 1.5rem 1rem;
+        gap: 1rem 1.5rem;
+
+        background: #181818;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+
+        transform: translateY(-150%);
         transition: transform 350ms ease-out;
     }
 
     .navLinks.active {
-        transform: translateX(0%);
+        transform: translateY(0);
+    }
+
+    .navLinks a {
+        font-size: 0.9rem;
+        padding-bottom: 0.3rem;
+    }
+
+    .navLinks a::after {
+        display: none;
     }
 
     .mobileNavToggle {
         display: block;
         position: absolute;
-        top: 1.5rem;
+        top: 1.25rem;
         right: 1.5rem;
         z-index: 9999;
         background: transparent;
         border: 0;
-        width: 2rem;
-        height: 2rem;
+        width: 2.5rem;
+        height: 2.5rem;
         cursor: pointer;
     }
 
@@ -91,7 +135,8 @@
     .mobileNavToggle::after {
         content: '';
         position: absolute;
-        width: 2rem;
+        left: 50%;
+        width: 1.8rem;
         height: 3px;
         background: var(--primary-text);
         border-radius: 2px;
@@ -99,18 +144,18 @@
     }
 
     .mobileNavToggle::before {
-        transform: translateY(-7px);
+        transform: translateX(-50%) translateY(-7px);
     }
 
     .mobileNavToggle::after {
-        transform: translateY(7px);
+        transform: translateX(-50%) translateY(7px);
     }
 
     .mobileNavToggle.open::before {
-        transform: rotate(45deg);
+        transform: translateX(-50%) rotate(45deg);
     }
 
     .mobileNavToggle.open::after {
-        transform: rotate(-45deg);
+        transform: translateX(-50%) rotate(-45deg);
     }
 }

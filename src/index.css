@@ -1,13 +1,16 @@
 /* src/index.css */
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Lato:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap');
 
 :root {
-    --dark-bg: #111111;
-    --dark-secondary: #1A1A1A;
-    --primary-text: #F5F5F5;
+    --dark-bg: #121212;
+    --dark-secondary: #1E1E1E;
+    --primary-text: #E0E0E0;
     --accent-color: #D4AF37;
-    --font-headings: 'Oswald', sans-serif;
-    --font-body: 'Lato', sans-serif;
+    --accent-color-hover: #ECCA6A;
+    --font-headings: 'Playfair Display', serif;
+    --font-body: 'Montserrat', sans-serif;
+    --border-radius: 8px;
+    --transition-speed: 0.3s;
 }
 
 * {
@@ -24,7 +27,7 @@ body {
     font-family: var(--font-body);
     background-color: var(--dark-bg);
     color: var(--primary-text);
-    line-height: 1.6;
+    line-height: 1.7;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
